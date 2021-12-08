@@ -29,14 +29,14 @@ public class Command {
     }
 
     public String executeCommand(Command command) {
-        /*if (model == null) return printWelcome();*/
+        /* if (model == null) return printWelcome(); */
         System.out.println(command.toString());
         if (command.toString().equalsIgnoreCase("help")) {
             return printHelp();
         } else if (command.toString().equalsIgnoreCase("quit")) {
             return "Goodbye!";
-        } else if(command.word1.equalsIgnoreCase("go")) {
-            if(word2 == null) {
+        } else if (command.word1.equalsIgnoreCase("go")) {
+            if (word2 == null) {
                 System.out.println("go where?");
                 return "";
             }
@@ -47,13 +47,17 @@ public class Command {
 
     private String goRoom(String word2) {
         switch (word2) {
-            case "up" -> model.roomToNorth();
-            case "down" -> model.roomToSouth();
-            case "left" -> model.roomToWest();
-            case "right" -> model.roomToEast();
-            default -> throw new NullPointerException();
+            case "up":
+                return model.roomToNorth();
+            case "down":
+                return model.roomToSouth();
+            case "left":
+                return model.roomToWest();
+            case "right":
+                return model.roomToEast();
+            default:
+                throw new NullPointerException();
         }
-        return model.getRoomDescription();
     }
 
     private String printHelp() {
@@ -66,7 +70,8 @@ public class Command {
     @Override
     public String toString() {
         if (getWord1() != null) {
-            if(getWord2() == null) return getWord1();
+            if (getWord2() == null)
+                return getWord1();
             return getWord1() + " " + getWord2();
         }
         return getWord2();
