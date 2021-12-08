@@ -29,33 +29,23 @@ public class Command {
     }
 
     public String executeCommand(Command command) {
-        /*if (model == null) return printWelcome();*/
-        System.out.println(command.toString());
         if (command.toString().equalsIgnoreCase("help")) {
             return printHelp();
         } else if (command.toString().equalsIgnoreCase("quit")) {
             return "Goodbye!";
-<<<<<<< HEAD
-        } else if(command.word1.equalsIgnoreCase("go")) {
-            if(word2 == null) {
-=======
-                return "";
+        } else if (command.word1.equalsIgnoreCase("go")) {
+            if (word2 == null) {
+                return "You realize you didn't go anywhere, and maybe you " +
+                        "should pick a direction first.\n" + model.getRoomDescription();
             }
+            return goRoom(command.word2);
+        } else {
+            return "Unknown command! Try with 'help'.";
         }
-        return "";
     }
 
     private String goRoom(String word2) {
         switch (word2) {
-<<<<<<< HEAD
-            case "up" -> model.roomToNorth();
-            case "down" -> model.roomToSouth();
-            case "left" -> model.roomToWest();
-            case "right" -> model.roomToEast();
-            default -> throw new NullPointerException();
-        }
-        return model.getRoomDescription();
-=======
             case "up":
                 return model.roomToNorth();
             case "down":
@@ -65,27 +55,23 @@ public class Command {
             case "right":
                 return model.roomToEast();
             default:
-                throw new NullPointerException();
+                return "Unknown command!";
         }
->>>>>>> aa0fd5ef97f0cf5d9ba8d9af5bfa9a5ee2fb4938
     }
 
     private String printHelp() {
-        return "You are lost. You are alone. You wander\n" +
-                "around at the university.\n\n" +
-                "Your command words are:\n" +
-                "go quit help";
+        return "Your command words are:\n" +
+                "go [up/down/right/left]\nquit\nhelp";
+
     }
 
     @Override
     public String toString() {
         if (getWord1() != null) {
-<<<<<<< HEAD
-            if(getWord2() == null) return getWord1();
-=======
-            if (getWord2() == null)
+            if (getWord2() == null) {
                 return getWord1();
->>>>>>> aa0fd5ef97f0cf5d9ba8d9af5bfa9a5ee2fb4938
+            }
+
             return getWord1() + " " + getWord2();
         }
         return getWord2();

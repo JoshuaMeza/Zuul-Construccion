@@ -149,6 +149,6 @@ public class WorldGenerator {
             }
         }
 
-        return "You are in the " + name + "\n" + strBuilder.toString();
+        return "You are at the " + name + "\n" + strBuilder.toString();
     }
 }

@@ -31,6 +31,13 @@
       "name": "Launch Main",
       "request": "launch",
       "mainClass": "main.Main",
+      "projectName": "Zuul_2bd78e5a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "main.Main",
       "projectName": "Test_2bd497da"
     },
     {
