@@ -1,4 +1,26 @@
 {
+<<<<<<< HEAD
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "main.Main",
+            "projectName": "Zuul_1354f7ff"
+        }
+    ]
+}
+=======
   // Use IntelliSense to learn about possible attributes.
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
@@ -33,3 +55,4 @@
     }
   ]
 }
+>>>>>>> aa0fd5ef97f0cf5d9ba8d9af5bfa9a5ee2fb4938

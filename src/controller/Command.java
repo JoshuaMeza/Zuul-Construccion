@@ -68,8 +68,10 @@ public class Command {
     @Override
     public String toString() {
         if (getWord1() != null) {
-            if (getWord2() == null)
+            if (getWord2() == null) {
                 return getWord1();
+            }
+
             return getWord1() + " " + getWord2();
         }
         return getWord2();
