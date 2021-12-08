@@ -15,12 +15,15 @@ public class Controller {
     }
 
     public void start() {
-        view.print(printWelcome());
+        view.clear();
+        view.successMsg(printWelcome());
+        view.print(model.getRoomDescription());
         Command command;
         String print = "";
 
-        while(!print.equalsIgnoreCase("Goodbye!")) {
-            command = parser.getCommand();
+        while (!print.equalsIgnoreCase("Goodbye!")) {
+            command = parser.getCommand(view.read("Insert a command:"));
+            view.clear();
             print = command.executeCommand(command);
             view.print(print);
         }
@@ -29,8 +32,6 @@ public class Controller {
     private String printWelcome() {
         return "Welcome to the World of Zuul!\n" +
                 "World of Zuul is a new, incredibly boring adventure game.\n" +
-                "Type 'help' if you need help.\n\n" +
-                model.getRoomDescription();
-
+                "Type 'help' if you need help.\n";
     }
 }

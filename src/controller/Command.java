@@ -29,20 +29,19 @@ public class Command {
     }
 
     public String executeCommand(Command command) {
-        /* if (model == null) return printWelcome(); */
-        System.out.println(command.toString());
         if (command.toString().equalsIgnoreCase("help")) {
             return printHelp();
         } else if (command.toString().equalsIgnoreCase("quit")) {
             return "Goodbye!";
         } else if (command.word1.equalsIgnoreCase("go")) {
             if (word2 == null) {
-                System.out.println("go where?");
-                return "";
+                return "You realize you didn't go anywhere, and maybe you " +
+                        "should pick a direction first.\n" + model.getRoomDescription();
             }
             return goRoom(command.word2);
+        } else {
+            return "Unknown command! Try with 'help'.";
         }
-        return "";
     }
 
     private String goRoom(String word2) {
@@ -56,15 +55,14 @@ public class Command {
             case "right":
                 return model.roomToEast();
             default:
-                throw new NullPointerException();
+                return "Unknown command!";
         }
     }
 
     private String printHelp() {
-        return "You are lost. You are alone. You wander\n" +
-                "around at the university.\n\n" +
-                "Your command words are:\n" +
-                "go quit help";
+        return "Your command words are:\n" +
+                "go [up/down/right/left]\nquit\nhelp";
+
     }
 
     @Override

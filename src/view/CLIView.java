@@ -31,7 +31,7 @@ public class CLIView implements ICLI {
     @Override
     public String read(String desc) {
         try {
-            print(desc);
+            successMsg(desc);
             return reader.readLine();
         } catch (Exception e) {
             return "";

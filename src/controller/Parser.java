@@ -6,23 +6,16 @@ import model.Model;
 
 public class Parser {
     private CommandWords commands; // holds all valid command words
-    private Scanner reader;
     private Model model;
 
     public Parser(Model model) {
         this.model = model;
-        commands = new CommandWords();
-        reader = new Scanner(System.in);
+        this.commands = new CommandWords();
     }
 
-    public Command getCommand() {
-        String inputLine; // will hold the full input line
+    public Command getCommand(String inputLine) {
         String word1 = null;
         String word2 = null;
-
-        System.out.print("> "); // print prompt
-
-        inputLine = reader.nextLine();
 
         // Find up to two words on the line.
         Scanner tokenizer = new Scanner(inputLine);
@@ -33,13 +26,14 @@ public class Parser {
                 // note: we just ignore the rest of the input line.
             }
         }
+        tokenizer.close();
 
         // Now check whether this word is known. If so, create a command
         // with it. If not, create a "null" command (for unknown command).
         if (commands.isCommand(word1)) {
             return new Command(word1, word2, model);
         } else {
-            return new Command(null, word2, model);
+            return new Command("", word2, model);
         }
     }
 }
