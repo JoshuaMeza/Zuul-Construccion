@@ -104,30 +104,46 @@ public class WorldGenerator {
         StringBuilder strBuilder = new StringBuilder(PANEL);
 
         if (north) {
-            for (int i = 0; i < 4; i++) {
-                int start = 10 + 26 * i;
-                strBuilder = strBuilder.replace(start, start + 5, "█████");
-            }
+            generateNorth(strBuilder);
         }
         if (south) {
-            for (int i = 0; i < 4; i++) {
-                int start = 166 + 26 * i;
-                strBuilder = strBuilder.replace(start, start + 5, "█████");
-            }
+            generateSouth(strBuilder);
         }
         if (west) {
-            for (int i = 0; i < 2; i++) {
-                int start = 104 + 26 * i;
-                strBuilder = strBuilder.replace(start, start + 10, "██████████");
-            }
+            generateWest(strBuilder);
         }
         if (east) {
-            for (int i = 0; i < 2; i++) {
-                int start = 104 + 26 * i;
-                strBuilder = strBuilder.replace(start + 15, start + 25, "██████████");
-            }
+            generateEast(strBuilder);
         }
 
         return "You are at the " + name + "\n" + strBuilder.toString();
+    }
+
+    private void generateNorth(StringBuilder strBuilder) {
+        for (int i = 0; i < 4; i++) {
+            int start = 10 + 26 * i;
+            strBuilder = strBuilder.replace(start, start + 5, "█████");
+        }
+    }
+
+    private void generateSouth(StringBuilder strBuilder) {
+        for (int i = 0; i < 4; i++) {
+            int start = 166 + 26 * i;
+            strBuilder = strBuilder.replace(start, start + 5, "█████");
+        }
+    }
+
+    private void generateWest(StringBuilder strBuilder) {
+        for (int i = 0; i < 2; i++) {
+            int start = 104 + 26 * i;
+            strBuilder = strBuilder.replace(start, start + 10, "██████████");
+        }
+    }
+
+    private void generateEast(StringBuilder strBuilder) {
+        for (int i = 0; i < 2; i++) {
+            int start = 104 + 26 * i;
+            strBuilder = strBuilder.replace(start + 15, start + 25, "██████████");
+        }
     }
 }
