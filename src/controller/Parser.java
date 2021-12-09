@@ -5,7 +5,7 @@ import java.util.Scanner;
 import model.Model;
 
 public class Parser {
-    private CommandWords commands; // holds all valid command words
+    private CommandWords commands;
     private Model model;
 
     public Parser(Model model) {
@@ -17,13 +17,11 @@ public class Parser {
         String word1 = null;
         String word2 = null;
 
-        // Find up to two words on the line.
         Scanner tokenizer = new Scanner(inputLine);
         if (tokenizer.hasNext()) {
-            word1 = tokenizer.next(); // get first word
+            word1 = tokenizer.next();
             if (tokenizer.hasNext()) {
-                word2 = tokenizer.next(); // get second word
-                // note: we just ignore the rest of the input line.
+                word2 = tokenizer.next();
             }
         }
         tokenizer.close();
