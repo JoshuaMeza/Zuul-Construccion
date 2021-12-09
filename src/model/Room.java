@@ -2,6 +2,11 @@ package model;
 
 public class Room extends StateRoom {
     @Override
+    public boolean isNull() {
+        return false;
+    }
+
+    @Override
     public boolean accesible() {
         return true;
     }
@@ -14,7 +19,7 @@ public class Room extends StateRoom {
             model.setCurrentRoom(getNorth());
             output = model.getRoomDescription();
         } else {
-            output = "You can't go there!\n" + model.getRoomDescription();
+            output = getDefaultUnreachableMessage() + model.getRoomDescription();
         }
 
         return output;
@@ -28,7 +33,7 @@ public class Room extends StateRoom {
             model.setCurrentRoom(getSouth());
             output = model.getRoomDescription();
         } else {
-            output = "You can't go there!\n" + model.getRoomDescription();
+            output = getDefaultUnreachableMessage() + model.getRoomDescription();
         }
 
         return output;
@@ -42,7 +47,7 @@ public class Room extends StateRoom {
             model.setCurrentRoom(getEast());
             output = model.getRoomDescription();
         } else {
-            output = "You can't go there!\n" + model.getRoomDescription();
+            output = getDefaultUnreachableMessage() + model.getRoomDescription();
         }
 
         return output;
@@ -56,7 +61,7 @@ public class Room extends StateRoom {
             model.setCurrentRoom(getWest());
             output = model.getRoomDescription();
         } else {
-            output = "You can't go there!\n" + model.getRoomDescription();
+            output = getDefaultUnreachableMessage() + model.getRoomDescription();
         }
 
         return output;

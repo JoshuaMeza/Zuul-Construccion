@@ -1,11 +1,18 @@
 package model;
 
-public abstract class StateRoom {
+import controller.Nullable;
+
+public abstract class StateRoom implements Nullable {
+    private final static String UNREACHABLE = "You can't go there!\n";
     private String description;
     private StateRoom north;
     private StateRoom south;
     private StateRoom east;
     private StateRoom west;
+
+    public String getDefaultUnreachableMessage() {
+        return UNREACHABLE;
+    }
 
     public String getDescription() {
         return description;
@@ -16,19 +23,19 @@ public abstract class StateRoom {
     }
 
     public StateRoom getNorth() {
-        return north;
+        return north == null ? NullRoom.getInstance() : north;
     }
 
     public StateRoom getSouth() {
-        return south;
+        return south == null ? NullRoom.getInstance() : south;
     }
 
     public StateRoom getEast() {
-        return east;
+        return east == null ? NullRoom.getInstance() : east;
     }
 
     public StateRoom getWest() {
-        return west;
+        return west == null ? NullRoom.getInstance() : west;
     }
 
     public void setNorth(StateRoom north) {
@@ -48,7 +55,7 @@ public abstract class StateRoom {
     }
 
     public boolean canGo(StateRoom room) {
-        return room != null ? room.accesible() : false;
+        return room.accesible();
     }
 
     public abstract boolean accesible();
