@@ -58,27 +58,6 @@ public class WorldGenerator {
         return validate.validateFileStructure(json);
     }
 
-    // private boolean validateUpperLevelOptions(JSONObject json) {
-    // return validate.validateUpperLevelOptions(json);
-    // }
-
-    // private boolean validateLength(JSONObject json) {
-    // return validate.validateLength(json);
-    // }
-
-    // private boolean validateConnections(JSONObject json) {
-    // return validate.validateConnections(json);
-    // }
-
-    // private boolean validateOrientations(Set<String> orientationKeys) {
-    // return validate.validateOrientations(orientationKeys);
-    // }
-
-    // private boolean validatePaths(JSONObject room, Set<String> orientationKeys,
-    // JSONArray declaredRooms) {
-    // return validate.validatePaths(room, orientationKeys, declaredRooms);
-    // }
-
     private HashMap<String, StateRoom> generateRoomsMap(JSONObject json) {
         HashMap<String, StateRoom> rooms = new HashMap<>();
         JSONArray roomsArray = (JSONArray) json.get("Rooms");
