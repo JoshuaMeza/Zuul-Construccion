@@ -1,0 +1,48 @@
+{
+    "Rooms" : ["Entrance", "Living room", "Kitchen", "Bedroom", "Dinning room", "Garden", "Bathroom"],
+    "Main" : "Entrance",
+    "Connections" : {
+        "Entrance" : {
+            "North" : "Living room",
+            "South" : null,
+            "East" : null,
+            "West" : null
+        },
+        "Living room" : {
+            "North" : null,
+            "South" : "Entrance",
+            "East" : "Dinning room",
+            "West" : null
+        },
+        "Kitchen" : {
+            "North" : "Garden",
+            "South" : "Dinning room",
+            "East" : "Bedroom",
+            "West" : "Bathroom"
+        },
+        "Bedroom" : {
+            "North" : null,
+            "South" : null,
+            "East" : null,
+            "West" : "Kitchen"
+        },
+        "Dinning room" : {
+            "North" : "Kitchen",
+            "South" : null,
+            "East" : null,
+            "West" : "Living room"
+        },
+        "Garden" : {
+            "North" : null,
+            "South" : "Kitchen",
+            "East" : null,
+            "West" : null
+        },
+        "Bathroom" : {
+            "North" : null,
+            "South" : null,
+            "East" : "Kitchen",
+            "West" : null
+        }
+    }
+}
